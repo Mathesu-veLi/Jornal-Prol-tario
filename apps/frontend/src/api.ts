@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: `https://jornal-prol-tario.onrender.com/api`,
+  baseURL: `${process.env.API_URL || "http://localhost:1337"}/api`,
 });
