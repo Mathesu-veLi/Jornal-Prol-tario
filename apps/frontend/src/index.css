@@ -1,0 +1,254 @@
+/* Reset básico */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte base, cores e renderização */
+:root {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #f5f5f5;
+  background-color: #1a1a1a;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --red-main: #d32f2f;
+  --red-dark: #9a0007;
+  --accent: #ffd600;
+  --background: #1a1a1a;
+  --card-bg: #2c2c2c;
+  --text-light: #f5f5f5;
+  --text-muted: #bbbbbb;
+}
+
+/* Modo claro */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #1a1a1a;
+    background-color: #fffaf0;
+  }
+}
+
+/* Base do body */
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--background);
+  color: var(--text-light);
+  font-family: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  text-rendering: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#root {
+  flex: 1; /* ocupa todo espaço disponível abaixo do h1 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centraliza verticalmente */
+  align-items: center; /* centraliza horizontalmente */
+  width: 100%;
+  max-width: 1280px;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 3.2em;
+  font-weight: 700;
+  color: var(--red-main);
+  line-height: 1.1;
+  margin: 2rem 0 1rem; /* espaço acima e abaixo */
+  text-align: center;
+  flex-shrink: 0; /* não deixa encolher */
+  width: 100%;
+  max-width: 1280px;
+  box-sizing: border-box;
+}
+
+
+
+/* Container fluido */
+#root,
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+/* Títulos */
+h1, h2, h3 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--red-main);
+  line-height: 1.1;
+}
+h1 {
+  font-size: 3.2em;
+}
+
+/* Parágrafos */
+p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover,
+a:focus-visible {
+  color: #ffaa00;
+  outline: none;
+}
+
+/* Botões */
+button {
+  background-color: var(--red-main);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.25s;
+  border: 1px solid transparent;
+}
+button:hover,
+button:focus-visible {
+  background-color: var(--red-dark);
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* Artigos e cards: agora fluido */
+article,
+.card {
+  background-color: var(--card-bg);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.3);
+  margin: 2rem auto;
+  text-align: left;
+  color: var(--text-light);
+  border-left: 4px solid var(--red-main);
+
+  width: 100%;
+  max-width: 700px;
+  box-sizing: border-box;
+}
+
+
+/* Layout responsivo de lista de posts */
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centraliza em linha */
+  gap: 2rem;
+  width: 100%;
+  max-width: 1280px;
+  padding: 2rem 0;
+  box-sizing: border-box;
+}
+
+.footer {
+  padding: 1rem 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid #444;
+  font-size: 0.9rem;
+  background-color: var(--card-bg);
+  user-select: none;
+}
+
+.footer a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+  color: #ffaa00;
+  outline: none;
+}
+
+
+
+
+/* Cada post ocupa até 45% em desktop, 100% em mobile */
+.post {
+  flex: 1 1 45%;
+  max-width: 45%;
+  min-width: 300px;
+  background-color: var(--card-bg);
+  color: var(--text-light);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #833;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .post {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* Responsividade simples */
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+  }
+  #root,
+  .container {
+    padding: 0.5rem 1rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 2.5em;
+  }
+}
+
+/* Animação opcional */
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Classe helper */
+.read-the-docs {
+  color: #777;
+}
