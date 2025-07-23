@@ -26,7 +26,7 @@ function PostsList() {
               {post.cover && (
                 <img
                   src={`${baseUrl}${post.cover.url}`}
-                  alt={post.title}
+                  alt={post.cover.alternativeText}
                   width={"100%"}
                 />
               )}

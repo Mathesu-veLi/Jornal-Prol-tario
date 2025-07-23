@@ -23,7 +23,7 @@ function PostPage() {
     <div className="container">
       <article className="card">
         {post.cover && (
-          <img src={`${baseUrl}${post.cover.url}`} alt={post.title} width={"100%"} />
+          <img src={`${baseUrl}${post.cover.url}`} alt={post.cover.alternativeText} width={"100%"} />
         )}
         <h2>{post.title}</h2>
         <span>{post.description}</span>
