@@ -24,7 +24,11 @@ function PostsList() {
           <article key={post.documentId} className="post">
             <Link to={`/post/${post.documentId}`}>
               {post.cover && (
-                <img src={`${baseUrl}${post.cover.url}`} alt={post.title} />
+                <img
+                  src={`${baseUrl}${post.cover.url}`}
+                  alt={post.title}
+                  width={"100%"}
+                />
               )}
               <h3>
                 <Link to={`/post/${post.documentId}`}>{post.title}</Link>
