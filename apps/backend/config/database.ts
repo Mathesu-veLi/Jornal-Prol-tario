@@ -22,21 +22,17 @@ export default ({ env }) => {
     },
     postgres: {
       connection: {
-        host: env("DATABASE_HOST", "localhost"),
-        port: env.int("DATABASE_PORT", 5432),
-        database: env("DATABASE_NAME", "strapi"),
-        user: env("DATABASE_USERNAME", "strapi"),
-        password: env("DATABASE_PASSWORD", "strapi"),
+        connectionString: env("DATABASE_URL"),
         ssl: env.bool("DATABASE_SSL", false) && {
           rejectUnauthorized: env.bool(
             "DATABASE_SSL_REJECT_UNAUTHORIZED",
             false
           ),
         },
-        schema: env("DATABASE_SCHEMA", "public"),
       },
       pool: { min: 2, max: 10 },
     },
+
     sqlite: {
       connection: {
         filename: path.join(
