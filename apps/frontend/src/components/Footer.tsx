@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <p>
-        Desenvolvido por <strong>Matheus Levi</strong>. Me
+        Desenvolvido por <strong>Matheus Levi (1VINF4)</strong>. Me
         encontre no{" "}
         <a
           href="https://github.com/Mathesu-veLi"
