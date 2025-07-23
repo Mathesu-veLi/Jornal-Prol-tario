@@ -9,7 +9,7 @@
 
 /* Fonte base, cores e renderização */
 :root {
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   font-weight: 400;
   color-scheme: light dark;
@@ -81,8 +81,6 @@ h1 {
   box-sizing: border-box;
 }
 
-
-
 /* Container fluido */
 #root,
 .container {
@@ -93,7 +91,9 @@ h1 {
 }
 
 /* Títulos */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin-bottom: 1rem;
   font-weight: 700;
   color: var(--red-main);
@@ -133,7 +133,9 @@ button {
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.25s;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.25s;
   border: 1px solid transparent;
 }
 button:hover,
@@ -169,35 +171,29 @@ article p {
   color: #fff;
 }
 
-.card p {
-  text-indent: 10px
+main > span {
+  font-size: 1.2em;
+  font-style: italic;
 }
 
-article span {
+.card p {
+  text-indent: 10px;
+}
+
+span {
   text-align: center;
   font-size: 1em;
   color: #aaa;
 }
-
 
 /* Layout responsivo de lista de posts */
 .posts {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; /* centraliza em linha */
-  gap: 2rem;
   width: 100%;
-  max-width: 1280px;
-  padding: 2rem 0;
+  max-width: 100%;
   box-sizing: border-box;
-}
-
-.post {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
 }
 
 article img {
@@ -228,13 +224,15 @@ article img {
   outline: none;
 }
 
-
-
-
 /* Cada post ocupa até 45% em desktop, 100% em mobile */
 .post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
   flex: 1 1 45%;
-  max-width: 45%;
+  max-width: 40%;
   min-width: 300px;
   background-color: var(--card-bg);
   color: var(--text-light);
@@ -250,7 +248,6 @@ article img {
     max-width: 100%;
   }
 }
-
 
 /* Responsividade simples */
 @media (max-width: 600px) {
@@ -271,8 +268,12 @@ article img {
 
 /* Animação opcional */
 @keyframes logo-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
