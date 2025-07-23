@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api } from "../api";
+import { api, baseUrl } from "../api";
 import { type Post } from "../types/post";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,7 @@ function PostsList() {
 
   useEffect(() => {
     api
-      .get("/posts")
+      .get("/posts?populate=cover")
       .then((res) => setPosts(res.data.data))
       .finally(() => setLoading(false));
   }, []);
@@ -22,13 +22,18 @@ function PostsList() {
       <div className="posts">
         {posts.map((post) => (
           <article key={post.documentId} className="post">
-            <h3>
-              <Link to={`/post/${post.documentId}`}>{post.title}</Link>
-            </h3>
-            <p>{post.text.substring(0, 120)}...</p>
-            <br />
-            <Link to={`/post/${post.documentId}`} className="button">
-              Ler mais
+            <Link to={`/post/${post.documentId}`}>
+              {post.cover && (
+                <img src={`${baseUrl}${post.cover.url}`} alt={post.title} />
+              )}
+              <h3>
+                <Link to={`/post/${post.documentId}`}>{post.title}</Link>
+              </h3>
+              <span>{post.description}</span>
+              <br />
+              <Link to={`/post/${post.documentId}`} className="button">
+                Ler mais
+              </Link>
             </Link>
           </article>
         ))}
