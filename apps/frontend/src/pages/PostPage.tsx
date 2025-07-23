@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { api } from "../api";
+import { api, baseUrl } from "../api";
 import { type Post } from "../types/post";
 
 function PostPage() {
@@ -11,7 +11,7 @@ function PostPage() {
   useEffect(() => {
     if (!id) return;
     api
-      .get(`/posts/${id}`)
+      .get(`/posts/${id}?populate=cover`)
       .then((res) => setPost(res.data.data))
       .finally(() => setLoading(false));
   }, [id]);
@@ -22,7 +22,11 @@ function PostPage() {
   return (
     <div className="container">
       <article className="card">
+        {post.cover && (
+          <img src={`${baseUrl}${post.cover.url}`} alt={post.title} width={"100%"} />
+        )}
         <h2>{post.title}</h2>
+        <span>{post.description}</span>
         <p>{post.text}</p>
         <br />
         <Link to="/" className="button">
