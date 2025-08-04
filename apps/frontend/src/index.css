@@ -245,6 +245,7 @@ span {
   height: 300px;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
+  margin-bottom: 10px;
 }
 
 .cover-wrapper img {
@@ -342,7 +343,7 @@ span {
 @media (max-width: 768px) {
   .postpage-container {
     padding: 1rem;
-    gap: 10px
+    gap: 10px;
   }
 
   .main-post {
