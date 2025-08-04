@@ -320,10 +320,11 @@ span {
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
-  border: 1px solid black;
-  width: 80%;
+  box-shadow: 0 0 2px #000;
+  width: 90%;
   padding: 10px;
   gap: 10px;
+  transition: 0.2s;
 }
 
 .recent-post-link img {
@@ -335,6 +336,7 @@ span {
 .recent-post-link:focus-visible {
   color: #ffaa00;
   outline: none;
+  box-shadow: 0 0 10px #0005;
 }
 
 @media (max-width: 768px) {
