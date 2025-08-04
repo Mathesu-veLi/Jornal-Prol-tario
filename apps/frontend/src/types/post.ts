@@ -1,5 +1,5 @@
 export interface Post {
-  documentId: number;
+  documentId: string;
   cover: Media;
   title: string;
   text: string;
