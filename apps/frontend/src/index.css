@@ -273,7 +273,79 @@ span {
   align-self: flex-start;
 }
 
+.postpage-container {
+  position: relative; /* cria referência para o absolute do aside */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+/* artigo centralizado no fluxo normal */
+.main-post {
+  max-width: 700px;
+  margin: 0 auto; /* centraliza horizontalmente */
+}
+
+/* aside posicionado ao lado, absoluto */
+.recent-posts {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0; /* alinha ao topo do container */
+  right: -380px; /* ajusta pra direita, a distância que quiser */
+  width: 350px;
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.3);
+  color: var(--text-light);
+  max-height: 600px;
+  overflow-y: auto;
+  gap: 20px
+}
+
+.recent-posts h3 {
+  margin-bottom: 1rem;
+  color: var(--red-main);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Links das últimas notícias */
+.recent-post-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.recent-post-link:hover,
+.recent-post-link:focus-visible {
+  color: #ffaa00;
+  outline: none;
+}
+
 @media (max-width: 768px) {
+  .postpage-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .main-post {
+    max-width: 100%;
+  }
+
+  .recent-posts {
+    flex: none;
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+
   .post {
     flex: 1 1 100%;
     max-width: 100%;
