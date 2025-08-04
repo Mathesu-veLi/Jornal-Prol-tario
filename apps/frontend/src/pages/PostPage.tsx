@@ -69,13 +69,6 @@ function PostPage() {
                 <img
                   src={`${baseUrl}${rp.cover.url}`}
                   alt={rp.cover.alternativeText}
-                  width={80}
-                  height={60}
-                  style={{
-                    objectFit: "cover",
-                    borderRadius: "4px",
-                    marginRight: "0.5rem",
-                  }}
                 />
               )}
               <span>{rp.title}</span>
