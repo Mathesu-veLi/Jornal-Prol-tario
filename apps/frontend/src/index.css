@@ -341,8 +341,8 @@ span {
 
 @media (max-width: 768px) {
   .postpage-container {
-    flex-direction: column;
     padding: 1rem;
+    gap: 10px
   }
 
   .main-post {
@@ -351,8 +351,12 @@ span {
 
   .recent-posts {
     flex: none;
+    position: relative;
+    top: 0;
+    right: 0;
     max-width: 100%;
     margin-top: 2rem;
+    margin-bottom: 3rem;
   }
 
   .post {
